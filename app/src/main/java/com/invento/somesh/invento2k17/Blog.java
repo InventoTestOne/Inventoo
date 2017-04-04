@@ -1,14 +1,12 @@
 package com.invento.somesh.invento2k17;
 
 /**
- * Created by som on 21/03/2017.
+ * arpit  Created by som on 21/03/2017.
  */
 
 public class Blog {
-
     private String Title,Desc,image;
     public Blog(){}
-
 
     public Blog(String title, String Desc, String image) {
         this.Title = Title;
