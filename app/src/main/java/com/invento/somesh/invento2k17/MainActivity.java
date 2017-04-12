@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
     FragmentManager mFragmentManager;
     FragmentTransaction mFragmentTransaction;
     private FirebaseAuth firebaseAuth;
+    public final static String MESSAGE_KEY ="androidbelieve.message_key";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,15 +29,27 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         firebaseAuth = FirebaseAuth.getInstance();
+        Intent intent = getIntent();
+        String d = intent.getStringExtra(MESSAGE_KEY);
+
 
 
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawerLayout);
         mNavigationView = (NavigationView) findViewById(R.id.shitstuff) ;
 
+          switch (d) {
+              case "TabFr":
+              mFragmentManager = getSupportFragmentManager();
+              mFragmentTransaction = mFragmentManager.beginTransaction();
+              mFragmentTransaction.replace(R.id.containerView, new TabFragment()).commit();
+                  break;
 
-        mFragmentManager = getSupportFragmentManager();
-        mFragmentTransaction = mFragmentManager.beginTransaction();
-        mFragmentTransaction.replace(R.id.containerView,new TabFragment()).commit();
+              case "ScheduleFragment":
+                  mFragmentManager = getSupportFragmentManager();
+                  mFragmentTransaction = mFragmentManager.beginTransaction();
+                  mFragmentTransaction.replace(R.id.containerView, new ScheduleFragment()).commit();
+                  break;
+          }
 
         mNavigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override

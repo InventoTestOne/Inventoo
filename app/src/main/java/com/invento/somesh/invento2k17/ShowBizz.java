@@ -1,6 +1,7 @@
 package com.invento.somesh.invento2k17;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -18,6 +19,7 @@ import com.squareup.picasso.NetworkPolicy;
 import com.squareup.picasso.Picasso;
 
 public class ShowBizz extends AppCompatActivity {
+    public final static String MESSAGE_KEY ="androidbelieve.message_key";
     private TextView TitleTxt;
     private TextView DescTxt;
     private ImageView mImage;
@@ -26,10 +28,7 @@ public class ShowBizz extends AppCompatActivity {
 
     private FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
     private DatabaseReference mRootReference = firebaseDatabase.getReference();
-    private DatabaseReference mChildReference = mRootReference.child("showbizz");
-    private DatabaseReference mChildReference2 = mChildReference.child("Title");
-    private DatabaseReference mChildReference3 = mChildReference.child("Desc");
-    private DatabaseReference mChildReference4 = mChildReference.child("image");
+
 
 
 
@@ -39,8 +38,13 @@ public class ShowBizz extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_bizz);
-        mdatabase = FirebaseDatabase.getInstance().getReference().child("Blog");
+
+        Intent intent = getIntent();
+        String d = intent.getStringExtra(MESSAGE_KEY);
+
+        mdatabase = FirebaseDatabase.getInstance().getReference().child(d);
         mdatabase.keepSynced(true);
+
 
         mblogList = (RecyclerView)findViewById(R.id.blog_list);
         mblogList.setHasFixedSize(true);

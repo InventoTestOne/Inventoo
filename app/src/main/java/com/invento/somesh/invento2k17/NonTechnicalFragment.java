@@ -17,8 +17,8 @@ import android.widget.ListAdapter;
 public class NonTechnicalFragment extends ListFragment {
 
 
-    String[] events={"Show Bizz(movie Making)","cut Throat(Solo Singing)","Feel THe BEat(Dance)",
-            "Rock the Range(Battle of Bands","vouge(The Fashion show"};
+    String[] events={"Scary House  \ncivil ","Mech-o-Marketing \n Mech","5-Player Football",
+            "Human Football","Gaming","Lucky Ladder","Jugad","Catch Phrase"};
 
 
 

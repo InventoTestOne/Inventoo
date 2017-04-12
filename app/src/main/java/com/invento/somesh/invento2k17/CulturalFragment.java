@@ -18,11 +18,14 @@ import android.widget.ListView;
  */
 public class CulturalFragment extends ListFragment {
 
+    public final static String MESSAGE_KEY ="androidbelieve.message_key";
+    public String d = "null";
+
     ListView listView;
     Intent i;
 
     String[] events={"Show Bizz(movie Making)","cut Throat(Solo Singing)","Feel THe BEat(Dance)",
-            "Rock the Range(Battle of Bands","vouge(The Fashion show"};
+            "Rock the Range(Battle of Bands","vouge(The Fashion show)"};
 
 
     public CulturalFragment() {
@@ -48,13 +51,38 @@ public class CulturalFragment extends ListFragment {
     public void onListItemClick(ListView l, View v, int position, long id) {
         switch(position) {
             case 0:
+                d="Blog";
                 Intent intent = new Intent(getActivity(), ShowBizz.class);
+                intent.putExtra(MESSAGE_KEY,d);
                 startActivity(intent);
                 break;
 
             case 1:
-                Intent intent2 = new Intent(getActivity(), CutThroat.class);
+                d="Event2";
+                Intent intent2 = new Intent(getActivity(), ShowBizz.class);
+                intent2.putExtra(MESSAGE_KEY,d);
                 startActivity(intent2);
+                break;
+
+            case 2:
+                d="Event3";
+                Intent intent3 = new Intent(getActivity(), ShowBizz.class);
+                intent3.putExtra(MESSAGE_KEY,d);
+                startActivity(intent3);
+                break;
+
+            case 3:
+                d="Event4";
+                Intent intent4 = new Intent(getActivity(), ShowBizz.class);
+                intent4.putExtra(MESSAGE_KEY,d);
+                startActivity(intent4);
+                break;
+
+            case 4:
+                d="Event5";
+                Intent intent5 = new Intent(getActivity(), ShowBizz.class);
+                intent5.putExtra(MESSAGE_KEY,d);
+                startActivity(intent5);
                 break;
         }
     }
